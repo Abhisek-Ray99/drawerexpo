@@ -10,7 +10,7 @@ const AppText = ({
     fontfamily="",
     size,
     ...other
-}) => {
+}: any) => {
   return (
     <Text
         style={[styles.text, {fontSize: size}, style]}

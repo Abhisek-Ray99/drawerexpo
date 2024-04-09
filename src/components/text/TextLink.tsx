@@ -9,7 +9,7 @@ const TextLink = ({
     onPress,
     titleStyle,
     lefticon,
-}) => {
+}: any) => {
   return (
     <Pressable
         onPress={onPress}
@@ -29,7 +29,8 @@ export default memo(TextLink)
 
 const styles = StyleSheet.create({
     color: {
-        color: colors.primary ,
+        color: colors.primary,
+        textDecorationLine: 'underline'
     },
     container:{
         flexDirection: 'row',

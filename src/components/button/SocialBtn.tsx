@@ -12,7 +12,7 @@ const SocialBtn = ({
     leftIcon = null,
     disabled,
     onPress,
-}) => {
+}:any) => {
   return (
     <View style={[styles.container,{backgroundColor: colors[disabled ? 'grey300' : color]}, BtnStyle]}>
             <Pressable

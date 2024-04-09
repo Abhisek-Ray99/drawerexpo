@@ -27,13 +27,6 @@ const Login = ({navigation}) => {
   const [checked, setChecked] = useState(false)
   const [show, setShow] = useState(false);
 
-  const handleCheckboxPress = () => {
-    setChecked(prev => {
-      return !prev
-    })
-  }
-  
-
   const [mail, setMail] = useState('');
   const [pwd, setPwd] = useState('');
   // console.log(user)
@@ -96,18 +89,10 @@ const Login = ({navigation}) => {
             }
           />
           <View style={styles.infoview}>
-            <Pressable onPress={handleCheckboxPress} style={styles.checkboxview}>
-              <View style={styles.checkbox} >
-                <AnimatedCheckbox
-                  checked={checked}
-                  highlightColor="#4444ff"
-                  checkmarkColor="#ffffff"
-                  boxOutlineColor="#4444ff"
-                />
-              </View>
-              <Text style={styles.remember}>Stay Signed</Text>
-            </Pressable>
-            <TextLink title="Forgot Password?" titleStyle={[styles.forgot, {paddingVertical: 10}]}/>
+            <TextLink 
+              title="Forgot Password?" 
+              titleStyle={[styles.forgot, {paddingVertical: 10}]}
+            />
           </View>
           <ImgBtn Title="Sign in" onPress={handleLogin} disabled={validateEmailPassword() ? false:true} />
           <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', overflow: 'hidden'}}>
@@ -184,7 +169,9 @@ const styles = StyleSheet.create({
   },
   infoview:{
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    paddingRight: 10,
+    alignSelf: 'flex-end',
   },
   forgot:{
     textAlign: 'center',

@@ -1,5 +1,6 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useState, memo } from 'react'
+
 import { colors } from '../../constants/colors'
 
 
@@ -15,10 +16,14 @@ const InputField = ({
     placeholdercolor,
     cursorColor,
     ...other
-}) => {
+}: any) => {
+
   const [isFocused, setIsFocused] = useState(false)
+
+  const borderColor = isFocused ? colors.grey1000 : colors.grey1500;
+
   return (
-    <View style={[styles.inputContainer, InputViewStyle]}>
+    <View style={[styles.inputContainer, InputViewStyle, { borderColor }]}>
       {InputLeftElement}
       <TextInput
         placeholder={placeholder}
@@ -26,8 +31,9 @@ const InputField = ({
         selectionColor={cursorColor}
         underlineColorAndroid={underlinecolor}
         secureTextEntry={password}
-        style={[styles.input, InputStyle, isFocused ]}
-        onFocus={ () => setIsFocused(true) }
+        style={[styles.input, InputStyle]}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
         {...other}
       />
       {InputRightElement}
@@ -43,7 +49,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderColor: colors.grey500,
-    borderRadius: 7,
+    borderRadius: 13,
     paddingHorizontal: 10
   },
   input: {

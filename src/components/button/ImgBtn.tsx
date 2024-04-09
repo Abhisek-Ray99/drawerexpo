@@ -11,7 +11,7 @@ const ImgBtn = ({
     disabled,
     leftIcon,
     style
-}) => {
+}: any) => {
 
   const scaleValue = useRef(new Animated.Value(1)).current;
 
